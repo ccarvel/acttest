@@ -1,5 +1,6 @@
 name: Deploy File to Server
 on: [push]
+
 steps:
   - uses: joutvhu/ftp-transfer@v1
   with:
