@@ -1,14 +1,18 @@
 on: [push]
 
-uses: actions/checkout@v3
-uses: Dylan700/sftp-upload-action@latest
-with:
-  server: cody.digitalscholarship.brown.edu
-  username: codydigi
-  password: ${{secrets.FTP_PASSWORD}}
-  port: 22
-  uploads: |
-    ./ => ./www/1/
-  ignore: |
-    *.git
-    */**/*git*
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: Dylan700/sftp-upload-action@latest
+      with:
+        server: cody.digitalscholarship.brown.edu
+        username: codydigi
+        password: ${{secrets.FTP_PASSWORD}}
+        port: 22
+        uploads: |
+          ./ => ./www/1/
+        ignore: |
+          *.git
+          */**/*git*
