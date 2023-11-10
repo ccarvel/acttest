@@ -1,23 +1,17 @@
 name: Deploy File to Server
-
 on: [push]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
-    - name: Copy file to server
-      uses: appleboy/scp-action@master
-      with:
-        host: ${{ secrets.SERVER_IP }}
-        username: ${{ secrets.SERVER_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        port: 22
-        source: "1.txt"
-        target: "~/www"
-
         
+steps:
+  - uses: joutvhu/ftp-transfer@v1
+    with:
+      host: ${{ secrets.SERVER_IP }}
+      port: 22
+      username: codydigi
+      password: ${{ secrets.FTP_PASSWORD }}
+      source: "1.txt"
+      target: "~/www"
