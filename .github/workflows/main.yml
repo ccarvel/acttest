@@ -6,10 +6,11 @@ jobs:
     name: deploy
     steps:
         - name: Checkout
-        uses: actions/checkout@v2
+        - uses: actions/checkout@v2
+        
         - name: deploy file
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-        with:
+        - uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        - with:
             username: 'codydigi'
             server: 'cody.digitalscholarship.brown.edu'
             port: 22
