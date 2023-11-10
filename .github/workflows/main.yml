@@ -1,17 +1,11 @@
 name: Deploy File to Server
 on: [push]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-        
 steps:
   - uses: joutvhu/ftp-transfer@v1
-    with:
-      host: ${{ secrets.SERVER_IP }}
-      port: 22
-      username: codydigi
-      password: ${{ secrets.FTP_PASSWORD }}
-      commands: |
-        cp "1.txt" "~/www"
+  with:
+    host: ${{ secrets.SERVER_IP }}
+    port: 22
+    username: codydigi
+    password: ${{ secrets.FTP_PASSWORD }}
+    commands: |
+      cp "1.txt" "~/www"
