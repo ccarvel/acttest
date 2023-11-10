@@ -1,7 +1,19 @@
+on: [push]
+
 jobs:
-  upload: null
-    name: Upload build to hosting environment
-    uses: Atyn/Simple-SFTP
-    with:
-      url: sftp://codydigi:PASSWORD@cody.digitalscholarship.brown.edu/www/1
-      local-directory: 1
+    deploy_job:
+    runs-on: ubuntu-latest
+    name: deploy
+    steps:
+        - name: Checkout
+        uses: actions/checkout@v2
+        - name: deploy file
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+            username: 'codydigi'
+            server: 'cody.digitalscholarship.brown.edu'
+            port: 22
+            ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} 
+            local_path: './1/*'
+            remote_path: '/var/www/1'
+            sftpArgs: '-o ConnectTimeout=5'
