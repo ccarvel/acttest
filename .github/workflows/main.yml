@@ -1,7 +1,7 @@
 jobs:
-      - upload:
-      - name: Upload build to hosting environment
-        uses: Atyn/Simple-SFTP
-        with:
-          url: sftp://codydigi:PASSWORD@cody.digitalscholarship.brown.edu/www/1
-          local-directory: 1
+  - upload: null
+  - name: Upload build to hosting environment
+    uses: Atyn/Simple-SFTP
+    with:
+      url: sftp://codydigi:PASSWORD@cody.digitalscholarship.brown.edu/www/1
+      local-directory: 1
