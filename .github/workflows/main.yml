@@ -13,9 +13,12 @@ jobs:
     - name: Copy file to server
       uses: appleboy/scp-action@master
       with:
+        node-version: 16
         host: ${{ secrets.SERVER_IP }}
         username: ${{ secrets.SERVER_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         source: "1.txt"
         target: "~/www"
+
+        
