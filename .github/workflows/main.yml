@@ -13,6 +13,5 @@ steps:
       port: 22
       username: codydigi
       password: ${{ secrets.FTP_PASSWORD }}
-      source: "1.txt"
-      target: "~/www"
-      
+      commands: |
+        cp "1.txt" "~/www"
