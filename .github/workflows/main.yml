@@ -1,5 +1,5 @@
 jobs:
-  - upload:
+- upload:
       - name: Upload build to hosting environment
         uses: Atyn/Simple-SFTP
         with:
